@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_for_test.c                                    :+:      :+:    :+:   */
+/*   ft_put_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/23 16:43:11 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/23 16:53:41 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/23 17:00:16 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdio.h>
-#include "libft.h"
+#include "internal.h"
 
-int main()
+void	ft_put_c(void *c)
 {
-	ft_putnbr_fd(1, 42);
-	return 0;
+	char	_c;
+
+	_c = *((char *)c);
+	ft_putchar_fd(_c, 1);
 }

@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/22 19:16:42 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/05/23 14:58:01 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ BUILD_DIR		= ${ROOT}/build
 EXPORT_INCLUDE_DIR	= ${ROOT}/product/include
 EXPORT_LIB_DIR		= ${ROOT}/product/lib
 
+EXTERN_INCLUDE_DIR	= /Users/tchoquet/Documents/Libraries/include
+EXTERN_LIB_DIR		= /Users/tchoquet/Documents/Libraries/lib
+
 RELEASE_SRC	= ${wildcard ${SRCS_DIR}/*.c}
 DEBUG_SRC 	= ${ROOT}/main_for_test.c
 
@@ -27,6 +30,8 @@ DEBUG_OBJ	= ${RELEASE_OBJ:.o=_debug.o} ${patsubst ${ROOT}%, ${BUILD_DIR}%, ${DEB
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
 alldebug: CFLAGS	= -g
+
+USED_EXTERN_LIBS = ft
 
 NAME			= ${EXPORT_LIB_DIR}/libftprintf.a
 EXPORT_INCLUDE	= ${EXPORT_INCLUDE_DIR}/libftprintf.h
@@ -60,7 +65,7 @@ re: fclean all
 alldebug: ${DEBUG_EXE}
 
 ${DEBUG_EXE}: ${DEBUG_OBJ}
-	${CC} -o $@ $^
+	${CC} -o $@ $^ -L${EXTERN_LIB_DIR} -l${USED_EXTERN_LIBS}
 
 cleandebug:
 	rm -rf ${DEBUG_OBJ}
@@ -74,10 +79,10 @@ redebug: fcleandebug alldebug
 
 #All targets
 ${BUILD_DIR}/%_debug.o: %.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR}
+	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} -I${EXTERN_INCLUDE_DIR}
 
 ${BUILD_DIR}/%.o: %.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR}
+	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} -I${EXTERN_INCLUDE_DIR}
 
 
 
