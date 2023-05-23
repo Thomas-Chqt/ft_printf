@@ -6,7 +6,13 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:29:19 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/22 19:29:20 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/23 01:26:29 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libftprintf.h"
+
+int	ft_printf(const char *, ...)
+{
+	return 0;
+}
