@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_c.c                                         :+:      :+:    :+:   */
+/*   ft_put_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 16:53:41 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 18:34:25 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/25 14:59:39 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/25 18:34:20 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	ft_put_c(va_list *ap)
+int	ft_put_s(va_list *ap)
 {
-	char	c;
+	char	*str;
 
-	c = va_arg(*ap, int);
-	ft_putchar_fd(c, (char)1);
-	return (1);
+	str = va_arg(*ap, char *);
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }

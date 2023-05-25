@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.c                                      :+:      :+:    :+:   */
+/*   ft_print_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 19:29:19 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 13:12:41 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/25 18:34:53 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/25 18:57:00 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
-#include <stdio.h>
 
-int	ft_printf(const char *a, ...)
+int	ft_print_arg(const char *str, size_t *i, va_list *ap)
 {
-	printf("%s", a);
-	return 0;
+	t_converter	*converter;
+	
+	(*i)++;
+	converter = converter_from_key(str + *i);
+	if (converter == NULL)
+		return (-1);
+	(*i) += converter->key_len;
+	return (converter->put_func(ap));
 }

@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 13:10:51 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:05:28 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int main()
 {
-	ft_putnbr_fd(42, 1);
-	ft_putendl_fd("abcd", 1);
+	ft_printf("abc\n%c\n%s\n%d\nqwe", 'a', "abc", 42);
 	return 0;
 }

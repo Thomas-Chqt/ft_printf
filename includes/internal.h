@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:27:50 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 13:01:23 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:40:27 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,27 @@
 # include "ftprintf.h"
 # include "libft.h"
 
-typedef struct s_convert	t_convert;
+# include <stdarg.h>
 
-struct s_convert
+typedef struct t_converter
 {
-	char			*key;
+	const char		*key;
 	unsigned int	key_len;
-	void			(*put_func)(void *);
-};
+	int				(*put_func)(va_list *);
+}	t_converter;
 
-void			ft_put_c(void *c);
-void			ft_put_s(void **s);
-void			ft_put_p(void **ptr);
-void			ft_put_d(void *nbr);
-void			ft_put_i(void *nbr);
-void			ft_put_u(void *nbr);
-void			ft_put_x(void *nbr);
-void			ft_put_upx(void *nbr);
-void			ft_put_percent(void *none);
+t_converter	*converter_from_key(const char *key);
 
-unsigned int	ft_put_converted(char *key, void *value);
+int	ft_put_c(va_list *ap);
+int	ft_put_s(va_list *ap);
+int	ft_put_p(va_list *ap);
+int	ft_put_d(va_list *ap);
+int	ft_put_i(va_list *ap);
+int	ft_put_u(va_list *ap);
+int	ft_put_x(va_list *ap);
+int	ft_put_upx(va_list *ap);
+int	ft_put_percent(va_list *ap);
+
+int	ft_print_arg(const char *str, size_t *i, va_list *ap);
 
 #endif
