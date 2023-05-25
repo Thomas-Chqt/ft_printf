@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:29:16 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/23 16:59:27 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:11:32 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	index_for_key(char *key, t_convert *array, unsigned int array_len)
 	int	i;
 
 	i = 0;
-	while (i < array_len)
+	while (((unsigned int)i) < array_len)
 	{
 		if (ft_strncmp(key, array[i].key, array[i].key_len) == 0)
 			return (i);

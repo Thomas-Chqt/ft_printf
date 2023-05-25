@@ -1,10 +1,15 @@
 {
-	"C_Cpp.default.includePath": [
-		"includes"
-	],
 	"files.associations": {
 		"libftprintf.h": "c",
 		"libft.h": "c",
 		"stdlib.h": "c"
+	},
+	"C_Cpp.default.includePath": [
+		"includes",
+		"/Users/tchoquet/Documents/Libraries/include"
+	],
+	"files.exclude": {
+		"Makefile": true,
+		"product": true
 	}
 }

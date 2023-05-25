@@ -6,14 +6,14 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:27:50 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/23 14:59:55 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:01:23 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERNAL_H
 # define INTERNAL_H
 
-# include "libftprintf.h"
+# include "ftprintf.h"
 # include "libft.h"
 
 typedef struct s_convert	t_convert;

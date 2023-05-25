@@ -6,13 +6,15 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:29:19 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/23 15:03:07 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:12:41 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
+#include <stdio.h>
 
 int	ft_printf(const char *a, ...)
 {
+	printf("%s", a);
 	return 0;
 }
