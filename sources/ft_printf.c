@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:29:19 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 19:08:24 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:14:34 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_printf(const char *s, ...)
 		return (1);
 	va_start(ap, s);
 	i = 0;
+	print_count = 0;
 	while (s[i])
 	{
 		if (s[i] == '%')
@@ -40,5 +41,5 @@ int	ft_printf(const char *s, ...)
 			i++;
 		}
 	}
-	return (0);
+	return (print_count);
 }

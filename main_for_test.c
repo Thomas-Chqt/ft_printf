@@ -6,15 +6,17 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 19:05:28 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:20:04 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 #include "libft.h"
+#include "stdio.h"
 
 int main()
-{
-	ft_printf("abc\n%c\n%s\n%d\nqwe", 'a', "abc", 42);
+{	
+	int nbr = 255;
+	printf("%c\n%s\n%p\n%d\n%i\n%u\n%x\n%X\n%%\n", 'a', "abcd", &nbr, nbr, nbr, nbr, nbr, nbr);
 	return 0;
 }

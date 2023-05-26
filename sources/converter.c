@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:14:51 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 19:10:04 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:25:23 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	init_converters(t_converter converters[])
 	converters[0] = create_t_convet("c", 1, &ft_put_c);
 	converters[1] = create_t_convet("s", 1, &ft_put_s);
 	converters[2] = create_t_convet("d", 1, &ft_put_d);
+	converters[3] = create_t_convet("i", 1, &ft_put_d);
 }
 
 static t_converter	create_t_convet(const char *key, unsigned int key_len,
