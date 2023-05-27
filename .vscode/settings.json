@@ -4,11 +4,14 @@
 		"libft.h": "c",
 		"stdlib.h": "c",
 		"ftprintf.h": "c",
-		"converter.h": "c"
+		"converter.h": "c",
+		"stdarg.h": "c",
+		"conversion.C": "cpp"
 	},
 	"C_Cpp.default.includePath": [
 		"includes",
-		"/Users/tchoquet/Documents/Libraries/include"
+		"/Users/tchoquet/Documents/Libraries/include",
+		"/Users/thomas/Library/Mobile Documents/com~apple~CloudDocs/Libraries/C/include"
 	],
 	"files.exclude": {
 		"Makefile": true,

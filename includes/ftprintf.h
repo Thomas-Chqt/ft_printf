@@ -6,13 +6,13 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:29:22 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/25 14:53:09 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:46:17 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FTPRINTF_H
 # define FTPRINTF_H
 
-int	ft_printf(const char *s, ...);
+int	ft_printf(const char *format, ...);
 
 #endif

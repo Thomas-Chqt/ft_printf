@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:27:50 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/26 15:25:03 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/27 00:07:51 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,24 @@
 
 # include <stdarg.h>
 
-typedef struct t_converter
+typedef struct s_conversion
 {
-	const char		*key;
-	unsigned int	key_len;
-	int				(*put_func)(va_list *);
-}	t_converter;
+	unsigned int	arg_index;
+	char			*flags;
+	unsigned int	min_width;
+	unsigned int	precision;
+	char			*length_mod;
+	char			conversion_type;
+}	t_conversion;
 
-t_converter	*converter_from_key(const char *key);
+t_conversion	*ft_parse_conversion(const char *format, size_t *i);
+void			ft_free_conv(t_conversion *conv);
 
-int	ft_put_c(va_list *ap);
-int	ft_put_s(va_list *ap);
-int	ft_put_p(va_list *ap);
-int	ft_put_d(va_list *ap);
-// int	ft_put_i(va_list *ap);
-int	ft_put_u(va_list *ap);
-int	ft_put_x(va_list *ap);
-int	ft_put_upx(va_list *ap);
-int	ft_put_percent(va_list *ap);
+int				ft_print_char(char c);
 
-int	ft_print_arg(const char *str, size_t *i, va_list *ap);
+int				ft_put_c(va_list *ap, t_conversion conv);
+
+int				ft_print_converted(const char *format, size_t *i,
+					va_list *ap, va_list *ap_start);
 
 #endif

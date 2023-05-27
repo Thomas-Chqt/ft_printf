@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/26 15:20:04 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/27 00:10:46 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 int main()
 {	
 	int nbr = 255;
-	printf("%c\n%s\n%p\n%d\n%i\n%u\n%x\n%X\n%%\n", 'a', "abcd", &nbr, nbr, nbr, nbr, nbr, nbr);
+	int res = ft_printf("%.5c\n", 'a');
 	return 0;
 }

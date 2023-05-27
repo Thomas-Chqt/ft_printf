@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ftprintf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:29:19 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/26 15:14:34 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/27 00:13:29 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	ft_printf(const char *s, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	size_t	i;
-	int		print_count;
-	int		return_val;
+	va_list			ap_start;
+	va_list			ap;
+	size_t			i;
+	size_t			print_count;
 
-	if (s == NULL)
-		return (1);
-	va_start(ap, s);
-	i = 0;
+	va_start(ap_start, format);
+	va_copy(ap, ap_start);
+	i = -1;
 	print_count = 0;
-	while (s[i])
+	while (format != NULL && format[++i])
 	{
-		if (s[i] == '%')
-		{
-			return_val = ft_print_arg(s, &i, &ap);
-			if (return_val < 0)
-				return (return_val);
-			else
-				print_count += return_val;
-		}
+		if (format[i] != '%')
+			print_count += ft_print_char(format[i]);
 		else
-		{
-			ft_putchar_fd(s[i], 1);
-			print_count++;
-			i++;
-		}
+			print_count += ft_print_converted(format, &i, &ap, &ap_start);
 	}
+	va_end(ap);
+	va_end(ap_start);
 	return (print_count);
 }
