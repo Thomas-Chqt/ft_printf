@@ -14,6 +14,11 @@
 			"type": "shell",
 			"command": "make all",
 			"dependsOn": "Save all"
+		},
+		{
+			"label": "Clean",
+			"type": "shell",
+			"command": "make fclean fcleandebug && rm -rf build product"
 		}
 	]
 }

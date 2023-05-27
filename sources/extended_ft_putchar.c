@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_for_test.c                                    :+:      :+:    :+:   */
+/*   extended_ft_putchar.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 20:43:31 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/27 14:33:59 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/27 14:35:45 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
 #include "extended_libft.h"
-#include <stdio.h>
-#include <stddef.h>
-#include <wchar.h>
 
-int main()
-{	
-	int res;
-
-	res = ft_printf("%c\n", 'a');
-	return 0;
+int extended_ft_putchar(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
 }

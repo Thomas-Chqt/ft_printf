@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_for_test.c                                    :+:      :+:    :+:   */
+/*   ft_free_conv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 20:43:31 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/27 15:42:35 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/27 19:51:58 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include "extended_libft.h"
-#include <stdio.h>
-#include <stddef.h>
-#include <wchar.h>
+#include "internal.h"
 
-int main()
-{	
-	int res;
-
-	res = ft_printf("%c\n", 'a');
-	return 0;
+void	ft_free_conv(t_conversion *conv)
+{
+	if (conv->flags)
+		free(conv->flags);
+	free(conv);
 }

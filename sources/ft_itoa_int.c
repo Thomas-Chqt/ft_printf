@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_for_test.c                                    :+:      :+:    :+:   */
+/*   ft_itoa_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 20:43:31 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/27 19:46:07 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/27 19:49:35 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
 #include "extended_libft.h"
-#include <stdio.h>
-#include <stddef.h>
-#include <wchar.h>
 
-int main()
-{	
-	int res;
+char	*ft_itoa_int(int nbr)
+{
+	return (ft_itoa_llong(((long long)nbr)));
+}
 
-	res = ft_printf("%c\n", 'a');
-	return 0;
+char	*ft_itoa_uint(unsigned int nbr)
+{
+	return (ft_itoa_ullong((unsigned long long)nbr));
 }

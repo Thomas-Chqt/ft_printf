@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_c.c                                         :+:      :+:    :+:   */
+/*   ft_itoa_short.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 16:53:41 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 00:10:04 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/27 19:49:47 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/27 19:50:43 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "internal.h"
+#include "extended_libft.h"
 
-int	ft_put_c(va_list *ap, t_conversion conv)
+char	*ft_itoa_short(short nbr)
 {
-	char	c;
+	return (ft_itoa_llong(((long long)nbr)));
+}
 
-	if (conv.conversion_type == 'c')
-	{
-		c = va_arg(*ap, int);
-		return (ft_print_char(c));
-	}
-	return (0);
+char	*ft_itoa_ushort(unsigned short nbr)
+{
+	return (ft_itoa_ullong((unsigned long long)nbr));
 }
