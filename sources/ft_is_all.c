@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_int.c                                      :+:      :+:    :+:   */
+/*   ft_is_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 19:46:07 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 19:49:35 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/28 18:50:04 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/28 19:01:03 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "extended_libft.h"
+// #include "extended_libft.h"
 
-char	*ft_itoa_int(int nbr)
-{
-	return (ft_itoa_llong(((long long)nbr)));
-}
+// int	ft_is_all(char *str, int (*f)(int))
+// {
+// 	size_t	i;
 
-char	*ft_itoa_uint(unsigned int nbr)
-{
-	return (ft_itoa_ullong((unsigned long long)nbr));
-}
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (f(str[i]) == 0)
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (1);
+// }

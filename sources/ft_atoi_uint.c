@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_char.c                                     :+:      :+:    :+:   */
+/*   ft_atoi_uint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 19:50:57 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 19:51:52 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/28 13:35:08 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/28 14:59:18 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "extended_libft.h"
 
-char	*ft_itoa_char(char nbr)
+unsigned int	ft_atoi_uint(const char *str)
 {
-	return (ft_itoa_llong(((long long)nbr)));
-}
+	unsigned int	nbr;
+	unsigned int	i;
 
-char	*ft_itoa_uchar(unsigned char nbr)
-{
-	return (ft_itoa_ullong((unsigned long long)nbr));
+	nbr = 0;
+	i = 0;
+	while (ft_isdigit(str[i]))
+	{
+		nbr = (nbr * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nbr);
 }

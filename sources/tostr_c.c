@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 20:44:12 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 20:47:09 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/28 17:20:49 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/28 17:39:46 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-char	*tostr_c(t_conversion *conv, va_list *ap)
+char	*tostr_c(t_conv_specs conv_specs, t_arg_list *args)
 {
 	char	c;
 
-	c = va_arg(*ap, int);
-
+	c = n_arg_int((long)conv_specs.arg_index, args);
+	if (!ft_isprint(c) && conv_specs.length_mod == l)
+		return (NULL);
 	return (ft_substr(&c, 0, 1));
 }

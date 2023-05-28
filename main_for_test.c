@@ -6,20 +6,24 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 20:43:31 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:03:03 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include "extended_libft.h"
 #include <stdio.h>
 #include <stddef.h>
 #include <wchar.h>
+#include <libc.h>
+
+#include "ftprintf.h"
+#include "extended_libft.h"
 
 int main()
 {	
-	int res;
+	int res = 0;
+	
+	res = ft_printf("|%#hhX|\n", 0xFF);
+	res =    printf("|%#hhX|\n", 0xFF);
 
-	res = ft_printf("%c\n", 'a');
 	return 0;
 }

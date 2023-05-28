@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 19:20:41 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 19:47:30 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:22:07 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_itoa_ullong(unsigned long long nbr)
 	unsigned int	i;
 
 	i = 0;
+	len = 0;
 	ullonglen(nbr, &len);
 	buffer = malloc(sizeof(char) * (len + 1));
 	if (buffer == NULL)
