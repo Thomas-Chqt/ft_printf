@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_arg_str.c                                        :+:      :+:    :+:   */
+/*   ex_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 18:16:45 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/30 14:45:27 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/30 19:58:06 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/30 20:07:45 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "extended_stdarg.h"
+#include "extended_libft.h"
 
-static char	*next_arg_str(t_arg_list *list);
-
-char	*n_arg_str(unsigned int n, t_arg_list *list)
+char	*ex_substr(char *s, unsigned int start, size_t len)
 {
-	move_ap(n, list);
-	return (next_arg_str(list));
-}
+	char	*new_str;
 
-static char	*next_arg_str(t_arg_list *list)
-{
-	return (va_arg(list->ap_current, char *));
+	new_str = ft_substr(s, start, len);
+	free(s);
+	return (new_str);
 }

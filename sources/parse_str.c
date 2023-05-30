@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:09:44 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 15:59:56 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:20:30 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ int	parse_flag(const char *str, size_t *i, t_flag *parsed_flag)
 	return (-1);
 }
 
-int	parse_length_comp(const char *str, size_t *i, t_length_comp *parsed_length_comp)
+int	parse_length_comp(const char *str, size_t *i,
+		t_length_comp *parsed_length_comp)
 {
-	static char		*length_mod_strs[8] = {"hh", "h", "l", "j", "t", "z", "q", "ll"};
+	static char		*length_mod_strs[8]
+		= {"hh", "h", "l", "j", "t", "z", "q", "ll"};
 	unsigned int	y;
 
 	y = 0;
 	while (y <= 8)
 	{
-		if (ft_strncmp(str + (*i), length_mod_strs[y], ft_strlen(length_mod_strs[y])) == 0)
+		if (ft_strncmp(str + (*i), length_mod_strs[y],
+				ft_strlen(length_mod_strs[y])) == 0)
 		{
 			(*i) += (ft_strlen(length_mod_strs[y]) - 1);
 			(*parsed_length_comp) = (t_length_comp)((unsigned char)1 << y);

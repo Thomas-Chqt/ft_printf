@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_all.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 18:50:04 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 19:01:03 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/22 19:29:22 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/28 15:44:17 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "extended_libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-// int	ft_is_all(char *str, int (*f)(int))
-// {
-// 	size_t	i;
+int	ft_printf(const char *format, ...);
 
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (f(str[i]) == 0)
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
+#endif

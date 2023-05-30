@@ -6,13 +6,13 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:50:40 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 18:57:26 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:27:44 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "extended_libft.h"
 
-char	*extended_ft_strjoin(char *s1, char *s2)
+char	*ex_strjoin(char *s1, char *s2)
 {
 	char	*ret;
 

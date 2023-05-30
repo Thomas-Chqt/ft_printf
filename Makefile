@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/26 14:57:20 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/05/30 20:17:55 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ alldebug: CFLAGS	= -g
 USED_EXTERN_LIBS = ft
 
 NAME			= ${EXPORT_LIB_DIR}/libftprintf.a
-EXPORT_INCLUDE	= ${EXPORT_INCLUDE_DIR}/ftprintf.h
+EXPORT_INCLUDE	= ${EXPORT_INCLUDE_DIR}/ft_printf.h
 
 DEBUG_EXE 		= ${ROOT}/Debug.out
 

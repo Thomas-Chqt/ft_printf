@@ -6,16 +6,18 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 19:07:31 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 19:30:42 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:17:46 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "extended_libft.h"
 
-static void	ullong_base_len(unsigned long long nbr, unsigned int *len, char *base);
-static void	itoa_ullong_len(unsigned long long nbr, unsigned int *i, char *buffer, char *base);
+static void	ullong_base_len(unsigned long long nbr,
+				unsigned int *len, char *base);
+static void	itoa_ullong_len(unsigned long long nbr,
+				unsigned int *i, char *buffer, char *base);
 
-char			*ft_itoa_ullong_base(unsigned long long nbr, char *base)
+char	*ft_itoa_ullong_base(unsigned long long nbr, char *base)
 {
 	unsigned int	len;
 	char			*buffer;
@@ -32,7 +34,8 @@ char			*ft_itoa_ullong_base(unsigned long long nbr, char *base)
 	return (buffer);
 }
 
-static void	ullong_base_len(unsigned long long nbr, unsigned int *len, char *base)
+static void	ullong_base_len(unsigned long long nbr,
+				unsigned int *len, char *base)
 {
 	if ((nbr / ft_strlen(base)) > 0)
 	{
@@ -41,7 +44,8 @@ static void	ullong_base_len(unsigned long long nbr, unsigned int *len, char *bas
 	(*len)++;
 }
 
-static void	itoa_ullong_len(unsigned long long nbr, unsigned int *i, char *buffer, char *base)
+static void	itoa_ullong_len(unsigned long long nbr,
+				unsigned int *i, char *buffer, char *base)
 {
 	if ((nbr / ft_strlen(base)) > 0)
 	{

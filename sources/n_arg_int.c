@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_arg_int.c                                      :+:      :+:    :+:   */
+/*   n_arg_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:22:55 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 17:28:20 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:15:18 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "extended_stdarg.h"
 
-static int	next_arg_int(t_arg_list *list);
+static int			next_arg_int(t_arg_list *list);
 static unsigned int	next_arg_uint(t_arg_list *list);
 
-int	n_arg_int(long n, t_arg_list *list)
+int	n_arg_int(unsigned int n, t_arg_list *list)
 {
 	move_ap(n, list);
 	return (next_arg_int(list));
 }
 
-unsigned int	n_arg_uint(long n, t_arg_list *list)
+unsigned int	n_arg_uint(unsigned int n, t_arg_list *list)
 {
 	move_ap(n, list);
 	return (next_arg_uint(list));
 }
 
-unsigned int	n_arg_uint_no_move(long n, t_arg_list *list)
+unsigned int	n_arg_uint_no_move(unsigned int n, t_arg_list *list)
 {
 	va_list			save;
 	unsigned int	value;

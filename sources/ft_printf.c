@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 15:44:23 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 19:54:33 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:15:11 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ int	ft_printf(const char *format, ...)
 	while (format != NULL && format[i])
 	{
 		if (format[i] != '%')
-			print_count += extended_ft_putchar(format[i++]);
-		else if (format[i++] == '%')
 		{
-			if (print_converted(format, &i, &args, &print_count) != 0)
-				return (-1);
+			ft_putchar_fd(format[i], 1);
+			print_count++;
 			i++;
+		}
+		else if (format[i] == '%')
+		{
+			i++;
+			if (print_converted(format, &i, &args, &print_count) < 0)
+				return (-1);
 		}
 	}
 	return (print_count);

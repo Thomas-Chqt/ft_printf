@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extended_ft_putchar.c                              :+:      :+:    :+:   */
+/*   create_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 14:33:59 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/27 14:35:45 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/30 17:57:29 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/30 20:07:38 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "extended_libft.h"
 
-int extended_ft_putchar(char c)
+char	*create_str(char c, long n)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	char			*str;
+	unsigned int	i;
+
+	if (n < 0)
+		return (ft_strdup(""));
+	str = malloc(sizeof(char) * (n + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }

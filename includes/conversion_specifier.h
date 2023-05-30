@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:32:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/28 16:13:05 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:13:28 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include "extended_stdarg.h"
 # include "extended_libft.h"
 
-typedef long			t_arg_index_comp;
+typedef unsigned int	t_arg_index_comp;
 typedef unsigned char	t_flags_comp;
-typedef long			t_width_comp;
-typedef long			t_precision_comp;
+typedef unsigned int	t_width_comp;
+typedef unsigned int	t_precision_comp;
 
 typedef enum flag
 {
@@ -32,7 +32,7 @@ typedef enum flag
 	apos	= 0b00100000,
 }	t_flag;
 
-int	parse_flag(const char *str, size_t *i, t_flag *parsed_flag);
+int				parse_flag(const char *str, size_t *i, t_flag *parsed_flag);
 
 typedef enum length_comp
 {
@@ -46,8 +46,8 @@ typedef enum length_comp
 	ll		= 0b10000000
 }	t_length_comp;
 
-int	parse_length_comp(const char *str, size_t *i,
-		t_length_comp *parsed_length_comp);
+int				parse_length_comp(const char *str, size_t *i,
+					t_length_comp *parsed_length_comp);
 
 typedef enum conv_type
 {
@@ -62,28 +62,33 @@ typedef enum conv_type
 	perc	= '%'
 }	t_type_comp;
 
-int	parse_type_comp(const char *str, size_t *i, t_type_comp *parsed_type_comp);
+int				parse_type_comp(const char *str, size_t *i,
+					t_type_comp *parsed_type_comp);
 
 typedef struct s_conv_specs
 {
 	t_arg_index_comp	arg_index;
 	t_flags_comp		flags;
 	t_width_comp		width;
-	t_precision_comp	precision;
+	t_precision_comp	*precision;
 	t_length_comp		length_mod;
 	t_type_comp			conversion_type;
 }	t_conv_specs;
 
-int	parse_arg_index_comp(const char *str, size_t *i,
-		t_arg_index_comp *parsed_arg_index_comp);
+t_conv_specs	empty_conv_specs(void);
+void			free_conv_specs(t_conv_specs conv_specs);
 
-int	parse_width_comp(const char *str, size_t *i, t_arg_list *args,
-		t_width_comp *parsed_width_comp);
+int				parse_arg_index_comp(const char *str, size_t *i,
+					t_arg_index_comp *parsed_arg_index_comp);
 
-int	parse_precision_comp(const char *str, size_t *i, t_arg_list *args,
-		t_precision_comp *parsed_precision_comp);
+int				parse_width_comp(const char *str, size_t *i, t_arg_list *args,
+					t_width_comp *parsed_width_comp);
 
-int	parse_conv_specs(const char *str, size_t *i, t_arg_list *args,
-		t_conv_specs *parsed_conv_specs);
+int				parse_precision_comp(const char *str, size_t *i,
+					t_arg_list *args,
+					t_precision_comp *parsed_precision_comp);
 
-#endif
+int				parse_conv_specs(const char *str, size_t *i, t_arg_list *args,
+					t_conv_specs *parsed_conv_specs);
+
+#endif		

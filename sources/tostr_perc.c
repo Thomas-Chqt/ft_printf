@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_arg_str.c                                        :+:      :+:    :+:   */
+/*   tostr_perc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 18:16:45 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/30 14:45:27 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/05/30 16:23:55 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/05/30 20:07:18 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "extended_stdarg.h"
+#include "internal.h"
 
-static char	*next_arg_str(t_arg_list *list);
-
-char	*n_arg_str(unsigned int n, t_arg_list *list)
+char	*tostr_perc(t_conv_specs conv_specs, t_arg_list *args)
 {
-	move_ap(n, list);
-	return (next_arg_str(list));
-}
+	char	c;
 
-static char	*next_arg_str(t_arg_list *list)
-{
-	return (va_arg(list->ap_current, char *));
+	if (args == 0)
+	{
+	}
+	c = '%';
+	if (!ft_isprint(c) && conv_specs.length_mod == l)
+		return (NULL);
+	return (ft_substr(&c, 0, 1));
 }
