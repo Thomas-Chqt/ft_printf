@@ -5,3 +5,5 @@
 build/
 product/
 .printfTester
+.printf-tester-tokyo
+.ft_printf_tester
