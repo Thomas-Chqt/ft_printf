@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:27:06 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/30 16:21:10 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:58:41 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static int	parse_arg_index(const char *str, size_t *i,
 				unsigned int *parsed_arg_index);
 
-int	parse_arg_index_comp(const char *str, size_t *i,
-		t_arg_index_comp *parsed_arg_index_comp)
+static int	parse_arg_index(const char *str, size_t *i,
+		unsigned int *parsed_arg_index)
 {
 	size_t	y;
 
@@ -27,11 +27,17 @@ int	parse_arg_index_comp(const char *str, size_t *i,
 		y++;
 	if (str[y] == '$')
 	{
-		(*parsed_arg_index_comp) = ft_atoi_uint(str + (*i));
+		(*parsed_arg_index) = ft_atoi_uint(str + (*i));
 		(*i) = y;
 		return (0);
 	}
 	return (-1);
+}
+
+int	parse_arg_index_comp(const char *str, size_t *i,
+		t_arg_index_comp *parsed_arg_index_comp)
+{
+	return (parse_arg_index(str, i, (unsigned int)parsed_arg_index_comp));
 }
 
 int	parse_width_comp(const char *str, size_t *i, t_arg_list *args,
@@ -43,7 +49,7 @@ int	parse_width_comp(const char *str, size_t *i, t_arg_list *args,
 	{
 		(*i)++;
 		if (parse_arg_index(str, i, &arg_index) == 0)
-			(*parsed_width_comp) = n_arg_uint_no_move(arg_index, args);
+			(*parsed_width_comp) = get_arg_no_move(arg_index, args);
 		else
 			(*parsed_width_comp) = 0;
 		while (str[*i] && !ft_isdigit(str[*i]))
@@ -71,7 +77,7 @@ int	parse_precision_comp(const char *str, size_t *i, t_arg_list *args,
 	{
 		(*i)++;
 		if (parse_arg_index(str, i, &arg_index) == 0)
-			(*parsed_precision_comp) = n_arg_uint_no_move(arg_index, args);
+			(*parsed_precision_comp) = get_arg_no_move(arg_index, args);
 		else
 			(*parsed_precision_comp) = 0;
 		while (str[*i] && str[*i] != '$')
@@ -86,18 +92,4 @@ int	parse_precision_comp(const char *str, size_t *i, t_arg_list *args,
 		(*i)++;
 	(*i)--;
 	return (0);
-}
-
-static int	parse_arg_index(const char *str, size_t *i,
-		unsigned int *parsed_arg_index)
-{
-	t_arg_index_comp	arg_index;
-
-	if (parse_arg_index_comp(str, i, &arg_index) == 0)
-	{
-		(*parsed_arg_index) = (unsigned int)arg_index;
-		return (0);
-	}
-	else
-		return (-1);
 }

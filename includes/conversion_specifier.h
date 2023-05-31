@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:32:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/30 16:13:28 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:00:20 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_conv_specs
 }	t_conv_specs;
 
 t_conv_specs	empty_conv_specs(void);
-void			free_conv_specs(t_conv_specs conv_specs);
+int				free_conv_specs(t_conv_specs conv_specs);
 
 int				parse_arg_index_comp(const char *str, size_t *i,
 					t_arg_index_comp *parsed_arg_index_comp);
