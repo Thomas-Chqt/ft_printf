@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/31 19:14:13 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/05/31 19:56:08 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,19 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
+LIBFT = ${ROOT}/libft.a
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 
 all: ${NAME}
 
+bonus: all
+
 ${NAME}: ${OBJ}
 	make -C ${LIBFT_DIR} all
+	cp ${LIBFT_DIR}/libft.a ${LIBFT}
+	mv ${LIBFT} ${NAME}
 	ar rc "$@" $^
 
 clean:
@@ -39,6 +44,7 @@ clean:
 
 fclean: clean
 	make -C ${LIBFT_DIR} fclean
+	rm -rf ${ROOT}/libft.a
 	rm -rf ${NAME}
 
 re: fclean all
