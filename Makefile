@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/30 20:17:55 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/05/31 21:47:07 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES_DIR 	= ${ROOT}/includes
 BUILD_DIR		= ${ROOT}/build
 
 EXPORT_INCLUDE_DIR	= ${ROOT}/product/include
-EXPORT_LIB_DIR		= ${ROOT}/product/lib
+EXPORT_LIB_DIR		= ${ROOT}#/product/lib
 
 EXTERN_INCLUDE_DIR	= /Users/tchoquet/Documents/Libraries/include
 EXTERN_LIB_DIR		= /Users/tchoquet/Documents/Libraries/lib
@@ -47,6 +47,7 @@ vpath %.c ${ROOT} ${SRCS_DIR}
 all: ${NAME} ${EXPORT_INCLUDE}
 
 ${NAME}: ${RELEASE_OBJ} | ${EXPORT_LIB_DIR}
+	cp "/Users/thomas/Library/Mobile Documents/com~apple~CloudDocs/Libraries/C/lib/libft.a" ${NAME}
 	ar rc "$@" $^
 
 ${EXPORT_INCLUDE_DIR}/%.h: ${INCLUDES_DIR}/%.h | ${EXPORT_INCLUDE_DIR}
