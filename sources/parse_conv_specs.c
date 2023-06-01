@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 15:10:33 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/30 19:18:29 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:54:41 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,11 @@ int	parse_conv_specs(const char *str, size_t *i, t_arg_list *args,
 		&& parse_type_comp(str, i, &(parsed_conv_specs->conversion_type)) != 0)
 	{
 		if (parse_next(str, i, args, parsed_conv_specs) != 0)
-		{
-			free_conv_specs(*parsed_conv_specs);
-			return (-1);
-		}
+			return (free_conv_specs(*parsed_conv_specs));
 		(*i)++;
 	}
 	if (str[*i] == '\0')
-	{
-		free_conv_specs(*parsed_conv_specs);
-		return (-1);
-	}
+		return (free_conv_specs(*parsed_conv_specs));
 	(*i)++;
 	parsed_conv_specs->length_mod = final_length_mod(parsed_conv_specs);
 	simplify_conv_spec(parsed_conv_specs);
@@ -110,11 +104,7 @@ static t_length_comp	final_length_mod(t_conv_specs *conv_specs)
 static void	simplify_conv_spec(t_conv_specs *conv_specs)
 {
 	if (conv_specs->conversion_type == p)
-	{
-		conv_specs->conversion_type = x;
 		conv_specs->length_mod = l;
-		conv_specs->flags = (conv_specs->flags | hash);
-	}
 	if ((conv_specs->conversion_type != c
 			&& conv_specs->conversion_type != s
 			&& conv_specs->precision != NULL)
