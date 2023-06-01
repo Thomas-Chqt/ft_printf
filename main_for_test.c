@@ -6,13 +6,10 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:17:29 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/01 00:16:51 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:32:21 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
-#include <wchar.h>
 #include <libc.h>
 
 #include "ft_printf.h"
@@ -20,6 +17,6 @@
 
 int main()
 {	
-	ft_printf("%d", 42);
+	ft_printf("%d", 0);
 	return 0;
 }

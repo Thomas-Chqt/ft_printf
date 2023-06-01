@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:27:06 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/05/31 23:58:41 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:08:03 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	parse_arg_index(const char *str, size_t *i,
 int	parse_arg_index_comp(const char *str, size_t *i,
 		t_arg_index_comp *parsed_arg_index_comp)
 {
-	return (parse_arg_index(str, i, (unsigned int)parsed_arg_index_comp));
+	return (parse_arg_index(str, i, (unsigned int *)parsed_arg_index_comp));
 }
 
 int	parse_width_comp(const char *str, size_t *i, t_arg_list *args,
@@ -52,7 +52,7 @@ int	parse_width_comp(const char *str, size_t *i, t_arg_list *args,
 			(*parsed_width_comp) = get_arg_no_move(arg_index, args);
 		else
 			(*parsed_width_comp) = 0;
-		while (str[*i] && !ft_isdigit(str[*i]))
+		while (str[*i] && ft_isdigit(str[*i]))
 			(*i)++;
 		return (0);
 	}

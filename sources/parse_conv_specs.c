@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 15:10:33 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/01 00:01:49 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:54:41 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,7 @@ static t_length_comp	final_length_mod(t_conv_specs *conv_specs)
 static void	simplify_conv_spec(t_conv_specs *conv_specs)
 {
 	if (conv_specs->conversion_type == p)
-	{
-		conv_specs->conversion_type = x;
 		conv_specs->length_mod = l;
-		conv_specs->flags = (conv_specs->flags | hash);
-	}
 	if ((conv_specs->conversion_type != c
 			&& conv_specs->conversion_type != s
 			&& conv_specs->precision != NULL)

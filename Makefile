@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/31 22:27:29 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/06/01 13:50:52 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,14 +40,16 @@ DEBUG_EXE 		= ${ROOT}/Debug.out
 
 vpath %.c ${ROOT} ${SRCS_DIR}
 
-.PHONY: all clean fclean re alldebug cleandebug fcleandebug redebug
+.PHONY: all clean fclean re bonus alldebug cleandebug fcleandebug redebug
 
 
 
 all: ${NAME} ${EXPORT_INCLUDE}
 
+bonus: all
+
 ${NAME}: ${RELEASE_OBJ} | ${EXPORT_LIB_DIR}
-	cp "/Users/thomas/Library/Mobile Documents/com~apple~CloudDocs/Libraries/C/lib/libft.a" ${NAME}
+	cp ${EXTERN_LIB_DIR}/libft.a ${NAME}
 	ar rc "$@" $^
 
 ${EXPORT_INCLUDE_DIR}/%.h: ${INCLUDES_DIR}/%.h | ${EXPORT_INCLUDE_DIR}
