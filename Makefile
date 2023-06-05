@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/06/01 13:50:52 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/06/05 11:54:13 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,8 @@ SRCS_DIR		= ${ROOT}/sources
 INCLUDES_DIR 	= ${ROOT}/includes
 BUILD_DIR		= ${ROOT}/build
 
-EXPORT_INCLUDE_DIR	= ${ROOT}/product/include
-EXPORT_LIB_DIR		= ${ROOT}#/product/lib
-
-EXTERN_INCLUDE_DIR	= /Users/tchoquet/Documents/Libraries/include
-EXTERN_LIB_DIR		= /Users/tchoquet/Documents/Libraries/lib
+EXPORT_INCLUDE_DIR	= ${MY_C_INCLUDE_PATH}
+EXPORT_LIB_DIR		= ${MY_LIBRARY_PATH}
 
 RELEASE_SRC	= ${wildcard ${SRCS_DIR}/*.c}
 DEBUG_SRC 	= ${ROOT}/main_for_test.c
@@ -31,7 +28,7 @@ CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
 alldebug: CFLAGS	= -g
 
-USED_EXTERN_LIBS = ft
+LIBFT			= ${MY_LIBRARY_PATH}/libft.a
 
 NAME			= ${EXPORT_LIB_DIR}/libftprintf.a
 EXPORT_INCLUDE	= ${EXPORT_INCLUDE_DIR}/ft_printf.h
@@ -40,16 +37,17 @@ DEBUG_EXE 		= ${ROOT}/Debug.out
 
 vpath %.c ${ROOT} ${SRCS_DIR}
 
-.PHONY: all clean fclean re bonus alldebug cleandebug fcleandebug redebug
+.PHONY: all clean fclean re bonus alldebug cleandebug fcleandebug redebug test
 
-
+test:
+	echo ${TEST}
 
 all: ${NAME} ${EXPORT_INCLUDE}
 
 bonus: all
 
 ${NAME}: ${RELEASE_OBJ} | ${EXPORT_LIB_DIR}
-	cp ${EXTERN_LIB_DIR}/libft.a ${NAME}
+	cp ${LIBFT} ${NAME}
 	ar rc "$@" $^
 
 ${EXPORT_INCLUDE_DIR}/%.h: ${INCLUDES_DIR}/%.h | ${EXPORT_INCLUDE_DIR}
@@ -68,7 +66,7 @@ re: fclean all
 alldebug: ${DEBUG_EXE}
 
 ${DEBUG_EXE}: ${DEBUG_OBJ}
-	${CC} -o $@ $^ -L${EXTERN_LIB_DIR} -l${USED_EXTERN_LIBS}
+	${CC} -o $@ $^ ${LIBFT}
 
 cleandebug:
 	rm -rf ${DEBUG_OBJ}
@@ -82,10 +80,10 @@ redebug: fcleandebug alldebug
 
 #All targets
 ${BUILD_DIR}/%_debug.o: %.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} -I${EXTERN_INCLUDE_DIR}
+	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR}
 
 ${BUILD_DIR}/%.o: %.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} -I${EXTERN_INCLUDE_DIR}
+	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR}
 
 
 
