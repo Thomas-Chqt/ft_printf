@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/05/31 19:56:08 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/06/05 12:07:53 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,7 @@ bonus: all
 
 ${NAME}: ${OBJ}
 	make -C ${LIBFT_DIR} all
-	cp ${LIBFT_DIR}/libft.a ${LIBFT}
-	mv ${LIBFT} ${NAME}
+	cp ${LIBFT_DIR}/libft.a ${NAME}
 	ar rc "$@" $^
 
 clean:
