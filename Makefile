@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/06/05 11:54:13 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/06/05 12:27:35 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,6 @@ vpath %.c ${ROOT} ${SRCS_DIR}
 
 .PHONY: all clean fclean re bonus alldebug cleandebug fcleandebug redebug test
 
-test:
-	echo ${TEST}
 
 all: ${NAME} ${EXPORT_INCLUDE}
 
