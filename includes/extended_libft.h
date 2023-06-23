@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 14:31:05 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/01 19:08:50 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:41:26 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EXTENDED_LIBFT_H
 
 # include <libft.h>
+# include <stdlib.h>
 
 unsigned int	ft_atoi_uint(const char *str);
 size_t			put_n_c(size_t n, size_t minus, char c);
